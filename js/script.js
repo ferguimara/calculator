@@ -2,7 +2,7 @@
 let firstNumber = '';
 let operator = '';
 let secondNumber = '';
-let total = '';
+let total = [];
 
 /*----- cached element references -----*/
 const $calcNumbersEl = $(".calcButton");
@@ -25,37 +25,34 @@ function clear(){
     firstNumber = '';
     operator = '';
     secondNumber = '';
+    total = [];
 };
 
 function handleOperation(evt){
-    //step 1: create first number
-    //1.1 if evt. class === number, firstnumber += evt.target, displayEl.val(firstnumber)
     console.log(evt.target.classList);
-    if (evt.target.classList.contains('calcButton') && operator === '' && secondNumber === ''){
-        // console.log(firstNumber);
-        firstNumber += evt.target.textContent;
-        $displayEl.val(firstNumber);
-    //1.2 else if evt.class === operator, operator += evt.target, displayEl.val(firstnumber,operator)
-    }else if(evt.target.classList.contains('operator') && secondNumber === ''){
-        // console.log(operator);
-        operator = evt.target.textContent;
-        $displayEl.val(firstNumber + operator);
-    }else if(evt.target.classList.contains('calcButton')){
+    if (evt.target.classList.contains('calcButton') && operator === '' && firstNumber === ''){
         secondNumber += evt.target.textContent;
-        $displayEl.val(firstNumber + operator + secondNumber);
+        total.push(secondNumber);
+        $displayEl.val(total.join(""));
+    }else if(evt.target.classList.contains('operator') && firstNumber === ''){
+        operator = evt.target.textContent;
+        total.push(operator);
+        $displayEl.val(total.join(""));
+    }else if(evt.target.classList.contains('calcButton')){
+        firstNumber += evt.target.textContent;
+        total.push(firstNumber);
+        $displayEl.val(total.join(""));
+        operator ='';
+        firstNumber ='';
     }
 }
 
 function calculate (){
-    //if firstNumber \\ operator\\ secondnumber === null return
-    if (firstNumber === '' || operator === '' || secondNumber === '') {
+    if (secondNumber === '') {
         return;
     }else{
-        // firstNumber = parseInt(firstNumber);
-        // secondNumber = parseInt(secondNumber);
-        total = eval(`${firstNumber} ${operator} ${secondNumber}`);
+        total = eval(total.join(""));
         console.log(total)
         $displayEl.val(total);
     }
-    //else if total = (number.firstNumber, operator, number secondNumber)
 }
