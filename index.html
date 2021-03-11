@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+    <script defer src="./js/script.js"></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+    <table id='calculator'>
+        <tr id="row1">
+            <td>
+                <input type='text' id="display" disabled>
+            </td>
+            <td>
+                <button id="button" class="clear">Clear</button>
+            </td>
+        </tr>
+        <tr id="row2">
+            <td><button id="button" class="calcButton">7</button></td>
+            <td><button id="button" class="calcButton">8</button></td>
+            <td><button id="button" class="calcButton">9</button></td>
+            <td><button id="button" class="operator">/</button></td>
+        </tr>
+        <tr id="row3">
+            <td><button id="button" class="calcButton">4</button></td>
+            <td><button id="button" class="calcButton">5</button></td>
+            <td><button id="button" class="calcButton">6</button></td>
+            <td><button id="button" class="operator">*</button></td>
+        </tr>
+        <tr id="row4">
+            <td><button id="button" class="calcButton">1</button></td>
+            <td><button id="button" class="calcButton">2</button></td>
+            <td><button id="button" class="calcButton">3</button></td>
+            <td><button id="button" class="operator">-</button></td>
+        </tr>
+        <tr id="row5">
+            <td><button id="button" class="calcButton">0</button></td>
+            <td><button id="button" class="calcButton">.</button></td>
+            <td><button id="button" class="operator">+</button></td>
+            <td><button id="button" class="equals">=</button></td>
+        </tr>
+    </table>
+    <footer>
+        <p>Copyright &copy; All Rights Reserved Calculator 2021</p>
+    </footer>
+</body>
+</html>
