@@ -33,6 +33,7 @@ function handleOperation(evt){
     if (evt.target.classList.contains('calcButton') && operator === '' && firstNumber === ''){
         secondNumber += evt.target.textContent;
         total.push(secondNumber);
+        secondNumber = '';
         $displayEl.val(total.join(""));
     }else if(evt.target.classList.contains('operator') && firstNumber === ''){
         operator = evt.target.textContent;
@@ -48,11 +49,8 @@ function handleOperation(evt){
 }
 
 function calculate (){
-    if (secondNumber === '') {
-        return;
-    }else{
-        total = eval(total.join(""));
-        console.log(total)
-        $displayEl.val(total);
-    }
+    total = eval(total.join(""));
+    console.log(total)
+    $displayEl.val(total);
+    
 }
